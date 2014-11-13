@@ -62,6 +62,9 @@
 	if A[i] > A[i] + A[i-1]     A[i] = A[i]
 	else      A[i] = A[i] + A[i-1]
 
+---
+###11月20日 动态规划 continue
+
 ######解码问题
 <https://oj.leetcode.com/problems/decode-ways/>
 
@@ -95,7 +98,7 @@ f[i][v]表示前i件物品恰放入一个容量为v的背包可以获得的最�
 
 令f[i][v]表示前i种物品恰放入一个容量为v的背包的最大权值
 	
-	f[i][v] = max{f[i − 1][v − k × c[i]] + k × w[i]}      0 <  k × c[i] < v
+	f[i][v] = max{f[i-1][v], f[i − 1][v − k × c[i]] + k × w[i]}      0 <  k × c[i] < v
 	
 一个很简单有效的优化,是这样的:若两件物品i、j满 足c[i] < c[j]且w[i] > w[j],则将物品j去掉,不用考虑
 	
